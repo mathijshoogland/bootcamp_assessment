@@ -1,5 +1,8 @@
+import org.apache.hadoop.conf.Configuration
 import org.apache.spark.{SparkFiles, sql}
 import org.apache.spark.sql.SparkSession
+import org.apache.hadoop.hbase.{HBaseConfiguration, HTableDescriptor, TableName}
+import org.apache.hadoop.hbase.client.ConnectionFactory
 
 object BootcampAssessment extends App {
 
@@ -48,7 +51,14 @@ object BootcampAssessment extends App {
   }
 
   def createHBaseTable(): Unit = {
-    //TODO: implement!
+    // https://www.tutorialspoint.com/hbase/hbase_create_table.htm
+    //Create configuration
+    val conf: Configuration = HBaseConfiguration.create()
+    conf.set("hbase.zookeeper.quorum", "sandbox-hdp.hortonworks.com")
+    val connection = ConnectionFactory.createConnection(conf)
+    val admin: Admin = connection.getAdmin
+    val tableDescriptor: HTableDescriptor = new HTableDescriptor(TableName.valueOf("dangerous_driving"))
+    admin.createTable(tableDescriptor)
   }
 
   def loadCSV(): Unit = {
