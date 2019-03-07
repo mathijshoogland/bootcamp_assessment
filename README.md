@@ -1,19 +1,14 @@
-# Data Engineering bootcamp assessment
+# Submission Mathijs Hoogland
 
-The goal of this test is to asses yourself and open a path to a clear and concise technical interview.
+## Run app
+1. Upload all `.csv` files belonging to the project on `hdfs://tmp` 
 
-Remember, you already went through our screening and first interview; this is the beginning and preparation for a mutual technical conversation.
 
-We do not expect you to know any of these tools here. But all of them are widely used and have a large variety of information all over the internet, so it's not an extremely complex job. The 8 weeks for the bootcamp will be very intensive, so being able to find your way around new concepts/tech/tools from day 0 is very important ability, thus this assessment.
+2. Copy jar file to server 
+``scp -P 2222 ~/dir-to-generated-jar-file/bootcamp-assessment_2.11-1.0.jar root@sandbox-hdp.hortonworks.com:/root``
 
-## Hortonworks Data Platform Sandbox
-
-Download the latest HDP sandbox and run locally following the instructions [here](https://hortonworks.com/tutorial/learning-the-ropes-of-the-hortonworks-sandbox/) to learn how to setup and everything.
-Do the first tutorial [Learning the Ropes of the HDP Sandbox](https://hortonworks.com/tutorial/learning-the-ropes-of-the-hortonworks-sandbox)
-
-> This was tested running on a macbook with 16GB of RAM. Check your memory usage or deploy in the cloud if you need more. I recommend allocating at least 8GB for this `vbox`.
-
-Explain you steps and impression in `MyExperience.md`.
+3. Execute file
+``spark-submit --class BootcampAssessment --master local ./bootcamp-assessment_2.11-1.0.jar`` 
 
 ## Scala + Spark
 
@@ -41,8 +36,3 @@ Same thing here, besides the code on a repo, explain you steps and impression in
 
 - Deliver a containerized Scala app
 - Write at least 2 Unit Tests before building the Scala app
-
-## Doubts &/Or Submission
-
-Clone this repository to start working on your own prefered git tool. In the end, commit and push your solution and send us the link.
-<br> Feel free to reach out to [Thiago de Faria](mailto:thiago.de.faria@linkit.nl).
