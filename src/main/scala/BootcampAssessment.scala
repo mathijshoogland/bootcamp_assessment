@@ -1,14 +1,15 @@
-object BootcampAssessment {
-  def main(args: Array[String]): Unit = {
-    println("Hello world!")
+object BootcampAssessment extends App {
+
+  println("Hello world!")
+
+  def uploadFiles(): Boolean = {
+    //TODO: implement!
+    true
   }
 
-  def uploadFiles(): Unit = {
+  def createTables(): Boolean = {
     //TODO: implement!
-  }
-
-  def createTables(): Unit = {
-    //TODO: implement!
+    true
   }
 
   def outputAggregatedInformation(): Unit = {
